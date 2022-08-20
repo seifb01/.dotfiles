@@ -105,4 +105,6 @@ source <(kubectl completion zsh)
 complete -o default -F __start_kubectl k
 alias h='history'
 alias n='nvim'
+alias vim='nvim'
+alias vi='nvim'
 alias ww='cd ~/Documents/work'
