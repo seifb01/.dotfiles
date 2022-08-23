@@ -12,5 +12,6 @@ nnoremap("<leader>f","<cmd>lua vim.lsp.buf.formatting()<cr>")
 
 inoremap("(","()<left>")
 inoremap("{","{}<left>")
+inoremap("[","[]<left>")
 inoremap("'","''<left>")
 inoremap("\"","\"\"<left>")
