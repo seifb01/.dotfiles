@@ -4,6 +4,8 @@ local inoremap = require("seif.keymap").inoremap
 nnoremap("<leader>pv","<cmd>Ex<CR>")
 nnoremap("<leader>wq","<cmd>wq<CR>")
 nnoremap("<leader>ff","<cmd>Telescope find_files<cr>")
+nnoremap("<leader>fe","<cmd>Telescope diagnostics<cr>")
+nnoremap("<leader>zz","<cmd>Telescope current_buffer_fuzzy_find<cr>")
 nnoremap("<leader>fg","<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fb","<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fh","<cmd>Telescope help_tags<cr>")
