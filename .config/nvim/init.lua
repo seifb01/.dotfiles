@@ -4,4 +4,3 @@ require("seif.lspconfig")
 require("seif.completion")
 require("seif.treesitter")
 require("seif.lualine")
-
