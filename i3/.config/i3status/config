@@ -7,14 +7,14 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
+      colors = true
+      interval = 3
 }
 
 order += "disk /"
 order += "wireless _first_"
 order += "battery all"
-order += "load"
+order += "memory"
 order += "tztime local"
 
 wireless _first_ {
@@ -24,14 +24,21 @@ wireless _first_ {
 
 battery all {
         format = "%status %percentage %remaining"
+        format_down = "B: no battery"
+        status_chr  = "⚡ CHR"
+        status_bat  = "🔋 BAT"
+        status_full = "🔌 FULL"
+        status_unk  = "?  UNK"
+        low_threshold = 20
 }
 
 tztime local {
         format = "%Y-%m-%d %H:%M:%S"
 }
 
-load {
-        format = "%1min"
+memory {
+        memory_used_method = classical
+        format="Memory: %used/%total"
 }
 
 disk "/" {
