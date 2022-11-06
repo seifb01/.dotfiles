@@ -237,5 +237,5 @@ bindsym $mod+m move workspace to output left
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
 
-exec --no-startup-id feh --no-fehbg --bg-fill '/home/seif/Pictures/Wallpapers/tokyo-night.png'
-exec xcompmgr -c -n
+#exec --no-startup-id feh --no-fehbg --bg-fill '/home/seif/Pictures/Wallpapers/tokyo-night.png'
+#exec xcompmgr -c -n
