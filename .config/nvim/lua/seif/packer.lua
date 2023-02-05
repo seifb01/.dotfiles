@@ -17,11 +17,21 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'rafamadriz/friendly-snippets'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-}
-  use 'github/copilot.vim'
+--  use {
+--    'nvim-treesitter/nvim-treesitter',
+--    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+--}
+--  use 'github/copilot.vim'
   use 'xiyaowong/nvim-transparent'
+--  use {
+--  "nvim-neo-tree/neo-tree.nvim",
+--    branch = "v2.x",
+--    requires = { 
+--      "nvim-lua/plenary.nvim",
+--      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+--      "MunifTanjim/nui.nvim",
+--    }
+--  }
 end)
+
 
