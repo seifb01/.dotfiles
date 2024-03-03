@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -69,19 +70,17 @@ ZSH_THEME="awesomepanda"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ag zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions) 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
 # You may need to manually set your language environment
-export PATH=$PATH:/usr/local/go/bin
 # export LANG=en_US.UTF-8
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -100,12 +99,16 @@ export NVM_DIR="$HOME/.nvm"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias k='kubectl'
-source <(kubectl completion zsh)
-complete -o default -F __start_kubectl k
-alias h='history'
+alias c='code'
 alias n='nvim'
 alias vim='nvim'
-alias vi='nvim'
-alias ww='cd ~/Documents/work'
-alias c='code'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias tas='tmux attach-session -t'
+alias tns='tmux new-session -t'
+alias tls='tmux ls'
+alias k='kubectl'
+
+source <(kubectl completion zsh)
+export PATH=$PATH:/usr/local/go/bin
