@@ -32,6 +32,7 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   "github/copilot.vim",
   "hrsh7th/nvim-compe",
+  "stevearc/conform.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -92,7 +93,23 @@ vim.opt.completeopt = "menuone,noselect"
 
 --- Formatting setup
 
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+require("conform").setup({
+  format_on_save = {
+    -- These options will be passed to conform.format()
+    timeout_ms = 500,
+    lsp_fallback = true,
+  },
+  formatters_by_ft = {
+    go = { "gofmt" }
+  }
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    require("conform").format({ bufnr = args.buf })
+  end,
+})
 
 --- TokyoNight
 
