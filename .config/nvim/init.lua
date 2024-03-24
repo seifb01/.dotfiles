@@ -1,4 +1,4 @@
---- general setup ######
+--- general setup
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -9,7 +9,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.guicursor = ""
 
---- lazy.nvim setup ######
+--- lazy.nvim setup
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -37,20 +37,20 @@ require("lazy").setup({
   'nvim-telescope/telescope.nvim', tag = '0.1.5',
 })
 
---- Mason setup ######
+--- Mason setup
 
 require("mason").setup()
 require("mason-lspconfig").setup()
 
---- Telescope setup ######
+--- Telescope setup
 
 vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, {})
 
--- LSP setup ######
+--- LSP setup
 
 local lspconfig = require('lspconfig')
 lspconfig.gopls.setup{
-  cmd = {"gopls", "--remote=auto"}, -- adjust this if gopls is not in your PATH
+  cmd = {"gopls", "--remote=auto"},
   filetypes = {"go", "gomod"},
   root_dir = lspconfig.util.root_pattern(".git","go.mod","."),
   settings = {
@@ -63,7 +63,7 @@ lspconfig.gopls.setup{
   },
 }
 
---- Autocompletion setup ######
+--- Autocompletion setup
 
 require('compe').setup {
   enabled = true,
@@ -90,6 +90,10 @@ require('compe').setup {
 }
 vim.opt.completeopt = "menuone,noselect"
 
---- TokyoNight  ######
+--- Formatting setup
+
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
+--- TokyoNight
 
 vim.cmd 'colorscheme tokyonight-night'
