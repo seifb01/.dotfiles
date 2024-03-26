@@ -64,6 +64,11 @@ lspconfig.gopls.setup{
   },
 }
 
+vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
+vim.keymap.set('n', '<leader>gh', vim.lsp.buf.hover, {})
+vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, {})
+vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, {})
+
 --- Autocompletion setup
 
 require('compe').setup {
