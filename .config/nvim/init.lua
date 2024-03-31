@@ -30,7 +30,7 @@ require("lazy").setup({
   "folke/tokyonight.nvim",
   "nvim-lua/plenary.nvim",
   "neovim/nvim-lspconfig",
-  "github/copilot.vim",
+  --"github/copilot.vim",
   "hrsh7th/nvim-compe",
   "stevearc/conform.nvim",
   "williamboman/mason.nvim",
