@@ -31,12 +31,18 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim",
   "neovim/nvim-lspconfig",
   --"github/copilot.vim",
+  'stevearc/oil.nvim',
   "hrsh7th/nvim-compe",
   "stevearc/conform.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   'nvim-telescope/telescope.nvim', tag = '0.1.5',
 })
+
+--- Oil setup
+
+require("oil").setup()
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 --- Mason setup
 
