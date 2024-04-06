@@ -18,7 +18,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -30,13 +30,13 @@ require("lazy").setup({
   "folke/tokyonight.nvim",
   "nvim-lua/plenary.nvim",
   "neovim/nvim-lspconfig",
-  --"github/copilot.vim",
   'stevearc/oil.nvim',
   "hrsh7th/nvim-compe",
   "stevearc/conform.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  'nvim-telescope/telescope.nvim', tag = '0.1.5',
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.5',
 })
 
 --- Oil setup
@@ -56,16 +56,27 @@ vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, {})
 --- LSP setup
 
 local lspconfig = require('lspconfig')
-lspconfig.gopls.setup{
-  cmd = {"gopls", "--remote=auto"},
-  filetypes = {"go", "gomod"},
-  root_dir = lspconfig.util.root_pattern(".git","go.mod","."),
+
+lspconfig.gopls.setup {
+  cmd = { "gopls", "--remote=auto" },
+  filetypes = { "go", "gomod" },
+  root_dir = lspconfig.util.root_pattern(".git", "go.mod", "."),
   settings = {
     gopls = {
       analyses = {
         unusedparams = true,
       },
       staticcheck = true,
+    },
+  },
+}
+
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
     },
   },
 }
@@ -106,7 +117,6 @@ vim.opt.completeopt = "menuone,noselect"
 
 require("conform").setup({
   format_on_save = {
-    -- These options will be passed to conform.format()
     timeout_ms = 500,
     lsp_fallback = true,
   },
