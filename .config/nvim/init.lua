@@ -52,6 +52,7 @@ require("mason-lspconfig").setup()
 --- Telescope setup
 
 vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, {})
+vim.keymap.set('n', '<leader>lg', require('telescope.builtin').live_grep, {})
 
 --- LSP setup
 
