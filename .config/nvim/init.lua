@@ -9,6 +9,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.guicursor = ""
 
+vim.keymap.set('n', 't', 'ci"', {})
+
 --- lazy.nvim setup
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -30,7 +32,7 @@ require("lazy").setup({
   "folke/tokyonight.nvim",
   "nvim-lua/plenary.nvim",
   "neovim/nvim-lspconfig",
-  'stevearc/oil.nvim',
+  "stevearc/oil.nvim",
   "hrsh7th/nvim-compe",
   "stevearc/conform.nvim",
   "williamboman/mason.nvim",
@@ -51,8 +53,10 @@ require("mason-lspconfig").setup()
 
 --- Telescope setup
 
-vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, {})
-vim.keymap.set('n', '<leader>lg', require('telescope.builtin').live_grep, {})
+local telescope = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>f', telescope.find_files, {})
+vim.keymap.set('n', '<leader>lg', telescope.live_grep, {})
 
 --- LSP setup
 
@@ -116,7 +120,8 @@ vim.opt.completeopt = "menuone,noselect"
 
 --- Formatting setup
 
-require("conform").setup({
+local conform = require("conform")
+conform.setup({
   format_on_save = {
     timeout_ms = 500,
     lsp_fallback = true,
@@ -130,10 +135,22 @@ require("conform").setup({
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)
-    require("conform").format({ bufnr = args.buf })
+    conform.format({ bufnr = args.buf })
   end,
 })
 
 --- TokyoNight
+
+require("tokyonight").setup({
+  style = "storm",
+  transparent = true,
+  terminal_colors = true,
+  styles = {
+    comments = { italic = false },
+    keywords = { italic = false },
+    sidebars = "dark",
+    floats = "dark",
+  },
+})
 
 vim.cmd 'colorscheme tokyonight-night'
