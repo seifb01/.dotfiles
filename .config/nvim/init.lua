@@ -38,6 +38,23 @@ require("lazy").setup({
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   'nvim-telescope/telescope.nvim',
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
+    keys = {
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
   tag = '0.1.5',
 })
 
@@ -85,6 +102,8 @@ lspconfig.lua_ls.setup {
     },
   },
 }
+
+lspconfig.terraformls.setup {}
 
 vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<leader>gh', vim.lsp.buf.hover, {})
