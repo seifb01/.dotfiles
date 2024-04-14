@@ -37,6 +37,7 @@ require("lazy").setup({
   "stevearc/conform.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
+  "m4xshen/autoclose.nvim",
   'nvim-telescope/telescope.nvim',
   {
     "christoomey/vim-tmux-navigator",
@@ -62,6 +63,10 @@ require("lazy").setup({
 
 require("oil").setup()
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+--- AutoClose Setup
+
+require("autoclose").setup()
 
 --- Mason setup
 
