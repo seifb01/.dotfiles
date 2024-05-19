@@ -14,7 +14,7 @@ alias la='ls -A'
 alias l='ls -al'
 alias tas='tmux attach-session -t'
 alias tns='tmux new-session -t'
-alias tks='tmux kill-session -t'
+alias t='tmux kill-session -t'
 alias tls='tmux ls'
 alias k='kubectl'
 alias gst='git status'
@@ -23,6 +23,8 @@ alias gc='git commit'
 
 source <(kubectl completion zsh)
 export PATH=$PATH:/usr/local/go/bin
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
