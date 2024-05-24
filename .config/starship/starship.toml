@@ -1,0 +1,20 @@
+add_newline = false
+format = """$directory$character"""
+right_format = """$all"""
+command_timeout = 1000
+
+[character]
+success_symbol = '[❯](bold green)'
+
+[package]
+disabled = true
+
+[git_branch]
+format =  '[$symbol$branch(:$remote_branch)]($style) '
+
+[directory]
+truncation_length = 4
+truncation_symbol = '…/'
+
+[golang]
+format = '[ ($version )](bold cyan)'
