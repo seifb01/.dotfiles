@@ -1,3 +1,9 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="clean"
+
+plugins=(git fast-syntax-highlighting zsh-autocomplete)
+
 alias c='code'
 alias n='nvim'
 alias vim='nvim'
@@ -16,10 +22,8 @@ alias cl='clear'
 
 export PATH=$PATH:/usr/local/go/bin
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
 
-eval "$(starship init zsh)"
+source $ZSH/oh-my-zsh.sh
